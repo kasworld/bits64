@@ -20,20 +20,25 @@ func TestSetBit(t *testing.T) {
 	t.Logf("%v", b)
 
 	(&b).SetBit(5)
-	t.Logf("%v", b)
+	t.Logf("SetBit(5) %v", b)
 	(&b).SetBits(0x0f0f0f)
-	t.Logf("%v", b)
+	t.Logf("SetBits(0x0f0f0f) %v", b)
 
 	(&b).ClearBit(2)
-	t.Logf("%v", b)
+	t.Logf("ClearBit(2) %v", b)
 	(&b).ClearBits(0x0f)
-	t.Logf("%v", b)
+	t.Logf("ClearBits(0x0f) %v", b)
 
+	b.SetBits(0)
+	t.Logf("%v", b)
 	(&b).NegBit(5)
-	t.Logf("%v", b)
+	t.Logf("NegBit(5) %v", b)
+	(&b).NegBit(5)
+	t.Logf("NegBit(5) %v", b)
 	(&b).NegBits(0xf0f0f0f)
-	t.Logf("%v", b)
+	t.Logf("NegBits(0xf0f0f0f) %v", b)
 
-	t.Logf("%v", (&b).GetBit(7))
-	t.Logf("%v", (&b).GetBits(0x704))
+	b.SetBits(0)
+	t.Logf("GetBit(7) %v", (&b).GetBit(7))
+	t.Logf("GetBits(0x704) %v", (&b).GetBits(0x704))
 }
